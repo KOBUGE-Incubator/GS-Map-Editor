@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://menu.gd" type="Script" id=1]
+
+[node name="menu" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="create_new" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 700.0
+margin/top = 69.0
+margin/right = 768.0
+margin/bottom = 108.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "New"
+flat = false
+
+[node name="map_list" type="ItemList" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 355.0
+margin/top = 116.0
+margin/right = 769.0
+margin/bottom = 657.0
+
+[node name="edit" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 353.0
+margin/top = 672.0
+margin/right = 768.0
+margin/bottom = 711.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Edit"
+flat = false
+
+[node name="new_file_name" type="LineEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 355.0
+margin/top = 69.0
+margin/right = 652.0
+margin/bottom = 109.0
+text = "my_new_map"
+placeholder/alpha = 0.6
+expand_to_len = false
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="ext" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 657.0
+margin/top = 92.0
+margin/right = 697.0
+margin/bottom = 106.0
+text = ".json"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="create_new" to="." method="_on_create_new_pressed"]
+
+[connection signal="pressed" from="edit" to="." method="_on_edit_pressed"]
+
+

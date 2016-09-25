@@ -1,0 +1,186 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://buttons/grass.png" type="Texture" id=2]
+[ext_resource path="res://buttons/cliff.png" type="Texture" id=3]
+[ext_resource path="res://players/player_1.png" type="Texture" id=4]
+[ext_resource path="res://players/player_2.png" type="Texture" id=5]
+[ext_resource path="res://misc/save.png" type="Texture" id=6]
+[ext_resource path="res://misc/menu.png" type="Texture" id=7]
+
+[node name="main" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="gui" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="buttons" type="ButtonGroup" parent="gui"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 100.0
+margin/bottom = 750.0
+alignment = 0
+
+[node name="tile_grass" type="Button" parent="gui/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 100.0
+margin/bottom = 38.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Grass"
+icon = ExtResource( 2 )
+flat = false
+
+[node name="tile_cliff" type="Button" parent="gui/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 38.0
+margin/right = 100.0
+margin/bottom = 76.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Cliff"
+icon = ExtResource( 3 )
+flat = false
+
+[node name="tile_p1" type="Button" parent="gui/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 76.0
+margin/right = 100.0
+margin/bottom = 114.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Player 1"
+icon = ExtResource( 4 )
+flat = false
+
+[node name="tile_p2" type="Button" parent="gui/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 114.0
+margin/right = 100.0
+margin/bottom = 152.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Player 2"
+icon = ExtResource( 5 )
+flat = false
+
+[node name="tile_save" type="Button" parent="gui/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 152.0
+margin/right = 100.0
+margin/bottom = 190.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Save"
+icon = ExtResource( 6 )
+flat = false
+
+[node name="tile_menu" type="Button" parent="gui/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 190.0
+margin/right = 100.0
+margin/bottom = 228.0
+toggle_mode = true
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Menu"
+icon = ExtResource( 7 )
+flat = false
+
+[node name="AcceptDialog" type="AcceptDialog" parent="gui"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 510.0
+margin/top = 349.0
+margin/right = 613.0
+margin/bottom = 407.0
+popup/exclusive = false
+window/title = "Notice"
+dialog/text = "Map is Saved."
+dialog/hide_on_ok = true
+
+[node name="player_1" type="Sprite" parent="."]
+
+transform/pos = Vector2( -18.5608, 16.7646 )
+z/z = 2
+texture = ExtResource( 4 )
+
+[node name="player_2" type="Sprite" parent="."]
+
+transform/pos = Vector2( -18.5608, 16.7646 )
+z/z = 2
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="gui/buttons/tile_grass" to="." method="_on_tile_grass_pressed"]
+
+[connection signal="pressed" from="gui/buttons/tile_cliff" to="." method="_on_tile_cliff_pressed"]
+
+[connection signal="pressed" from="gui/buttons/tile_p1" to="." method="_on_tile_p1_pressed"]
+
+[connection signal="pressed" from="gui/buttons/tile_p2" to="." method="_on_tile_p2_pressed"]
+
+[connection signal="pressed" from="gui/buttons/tile_save" to="." method="_on_tile_save_pressed"]
+
+[connection signal="pressed" from="gui/buttons/tile_menu" to="." method="_on_tile_menu_pressed"]
+
+
